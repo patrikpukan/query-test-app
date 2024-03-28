@@ -1,8 +1,10 @@
 import useLoadPosts from "../hooks/useLoadPosts";
 import { Post } from "../model/content";
 import { FC } from "react";
+import { useState } from "react";
 
 const Cards: FC = () => {
+  const [editable, setEditable] = useState(false);
   const { data, error, isError, isLoading } = useLoadPosts();
   if (isError) {
     return <div>{error?.message}</div>;
